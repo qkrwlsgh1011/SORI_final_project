@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이미지 업로드 서비스</title>
+    <style>
+        input[type="file"] {
+            display: none;
+         }
+        #upload-button {
+            background-color: yellow;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지를 업로드하세요!</h1>
+    <form id="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <label for="file-input" id="upload-button">파일 선택</label>
+        <input id="file-input" type="file" name="file"><br><br>
+        <input type="submit" value="Upload" style="display:none;">
+    </form>
+    <audio id="audio-player" src="../static/service.wav" autoplay controls></audio>
+    <script>
+        window.addEventListener("load", function() {
+            document.getElementById('audio-player').play();
+        });
+        document.getElementById('file-input').onchange = function() {
+            document.getElementById('upload-form').submit();
+        };
+    </script>
+</body>
+</html>

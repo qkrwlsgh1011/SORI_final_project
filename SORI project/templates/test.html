@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploaded Image</title>
+</head>
+<body>
+	<h1>Uploaded Image</h1>
+	{% if 'image_path' in session %}
+		<img src="{{ url_for('static', filename=session['image_path']) }}" alt="Uploaded Image">
+	{% else %}
+		<p>No image uploaded.</p>
+	{% endif %}
+        print
+</body>
+</html>
